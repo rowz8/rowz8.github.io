@@ -64,7 +64,7 @@
 
 
 
-                            <script language="javascript">
+                            <script>
                                 const loginForm = document.getElementById("login-form");
                                 const loginButton = document.getElementById("login-form-submit");
                                 const loginErrorMsg = document.getElementById("login-error-msg");
@@ -76,7 +76,7 @@
 
                                     if (username === "user" && password === "web_dev") {
                                         alert("You have successfully logged in.");
-                                        open("password.html");
+                                        window.open("password.html","_self");
                                     } else {
                                         alert("Invalid Username or Password")
                                         loginErrorMsg.style.opacity = 1;
