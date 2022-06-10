@@ -47,12 +47,44 @@
                     <div class="card mb-5">
                         <div class="card-body d-flex flex-column align-items-center">
                             <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><i class="fas fa-medkit"></i></div>
-                            <form class="text-center">
-                                <div class="mb-3"><label for="username">Username:</label><br><input class="form-control" type="text" name="username" id="username" placeholder="Username"></div>
-                                <div class="mb-3"><label for="password">Password:</label><br><input class="form-control" type="password" name="password" id="password" placeholder="Password"></div>
-                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Login</button></div>
-                                <p class="text-muted">Forgot your password?</p>
+
+
+                            <form id="login-form" class="text-center">
+                                <label for="username-field"> Username: </label>
+                                <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+                                <br>
+                                <br>
+                                <label for="password-field"> Password: </label>
+                                <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+                                <br>
+                                <br>
+
+                                <input type="submit" value="Login" id="login-form-submit">
                             </form>
+
+
+
+                            <script language="javascript">
+                                const loginForm = document.getElementById("login-form");
+                                const loginButton = document.getElementById("login-form-submit");
+                                const loginErrorMsg = document.getElementById("login-error-msg");
+
+                                loginButton.addEventListener("click", (e) => {
+                                    e.preventDefault();
+                                    const username = loginForm.username.value;
+                                    const password = loginForm.password.value;
+
+                                    if (username === "user" && password === "web_dev") {
+                                        alert("You have successfully logged in.");
+                                        open("password.html");
+                                    } else {
+                                        alert("Invalid Username or Password")
+                                        loginErrorMsg.style.opacity = 1;
+                                    }
+                                })
+                            </script>
+
+
                         </div>
                     </div>
                 </div>
@@ -80,6 +112,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
     <script src="/assets/js/script.min.js?h=0f8edbd4baf96f593e9fbb2abd836e7e"></script>
+
+
 </body>
 
 </html>
